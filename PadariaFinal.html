@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panificadora Planalto - Tradição e Sabor</title>
+
+    <style>
+        :root {
+            --cor-primaria: #8B4513; 
+            --cor-texto: #333333; 
+            --cor-fundo: #FDF5E6; 
+            --cor-whatsapp: #25D366;
+            --fonte-padrao: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--fonte-padrao);
+            font-size: 18px; 
+            line-height: 1.6; 
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+        }
+
+        header {
+            background-color: #fff;
+            padding: 15px 30px;
+            border-bottom: 2px solid var(--cor-primaria);
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            gap: 60px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--cor-primaria);
+        }
+
+        nav a {
+            color: var(--cor-texto);
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            margin-left: 20px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #f0f0f0;
+        }
+
+        section {
+            padding: 60px 30px; 
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 40px;
+            color: var(--cor-primaria);
+            margin-bottom: 40px;
+        }
+        
+        #inicio {
+            background-image: url('https://grupospimovel.s3.amazonaws.com/Imagens/Noticias/Sistema/curiosidades/padaria_01.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 150px 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        #inicio h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+        }
+
+        #inicio p {
+            font-size: 24px;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+        }
+
+        .cta-button {
+            background-color: var(--cor-primaria);
+            color: white;
+            padding: 20px 40px; 
+            font-size: 22px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05); 
+        }
+        
+        .cardapio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .item-cardapio {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .item-cardapio img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .item-cardapio-info {
+            padding: 20px;
+        }
+
+        .item-cardapio h3 {
+            font-size: 24px;
+            margin-top: 0;
+            color: var(--cor-primaria);
+        }
+        
+        .item-cardapio .preco {
+            font-size: 22px;
+            font-weight: bold;
+            color: #000;
+        }
+
+        #pedidos-rapidos .container-pedido {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+
+        .categoria-pedido h3 {
+            border-bottom: 2px solid var(--cor-fundo);
+            padding-bottom: 10px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: var(--cor-primaria);
+        }
+
+        .item-pedido {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .item-pedido:last-child {
+            border-bottom: none;
+        }
+
+        .item-pedido .nome-produto {
+            font-size: 20px;
+        }
+
+        .item-pedido .quantidade-item {
+            width: 70px;
+            padding: 8px;
+            font-size: 18px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #resumo-pedido {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: var(--cor-fundo);
+            border-radius: 8px;
+        }
+
+        #resumo-pedido h3 {
+            margin-top: 0;
+            color: var(--cor-primaria);
+        }
+
+        #lista-pedido-final {
+            list-style: none;
+            padding: 0;
+        }
+        #lista-pedido-final li {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        #total-pedido {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .mensagem-confianca {
+            font-size: 16px;
+            color: #555;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .whatsapp-button {
+            display: inline-block;
+            background-color: var(--cor-whatsapp);
+            color: white;
+            padding: 25px 50px;
+            font-size: 28px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px; 
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            cursor: pointer;
+            border: none;
+            margin-top: 20px;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        #informacoes .info-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+            font-size: 20px;
+        }
+
+        footer {
+            background-color: var(--cor-texto);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin-left: 10px;
+                font-size: 18px;
+            }
+
+            #inicio h1 {
+                font-size: 40px;
+            }
+
+            #inicio p {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Panificadora Planalto</div>
+        <nav>
+            <a href="#cardapio">Cardápio</a>
+            <a href="#pedidos-rapidos">Pedidos Rápidos</a>
+            <a href="#informacoes">Nossa Padaria</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio">
+            <h1>Sabor e tradição em cada pedaço</h1>
+            <p>A única padaria da Vila Planalto, com produtos únicos e uma história única.</p>
+            <a href="#cardapio" class="cta-button">Ver as delícias</a>
+        </section>
+
+        <section id="cardapio">
+            <h2>Nosso Cardápio</h2>
+            <div class="cardapio-grid">
+                <div class="item-cardapio">
+                    <img src="https://media-cdn.tripadvisor.com/media/photo-s/0b/78/8c/d7/tapiocas-recheadas.jpg" alt="Tapioca recheada">
+                    <div class="item-cardapio-info">
+                        <h3>Tapioca Recheada</h3>
+                        <p>Tapioca no ponto, rechada com capricho e amor. Tudo que você precisa de manhã.</p>
+                        <div class="preco">R$ 15,00</div>
+                    </div>
+                </div>
+                <div class="item-cardapio">
+                    <img src="https://receitasdepesos.com.br/wp-content/uploads/2023/10/salgado-assado-de-presunto-e-queijo.jpg.webp" alt="Salgado assado de presunto e queijo">
+                    <div class="item-cardapio-info">
+                        <h3>Salgado</h3>
+                        <p>Massa dourada, completamente recheado. Explosão de sabores.</p>
+                        <div class="preco">R$ 8,00</div>
+                    </div>
+                </div>
+                <div class="item-cardapio">
+                    <img src="https://s2-receitas.glbimg.com/-6Ik9qaQ8ieyQOpwQlmMGevQKxo=/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_1f540e0b94d8437dbbc39d567a1dee68/internal_photos/bs/2023/7/j/6kGQyCQTadJpZWqstUMQ/receita-de-bolo-de-doce-de-leite-com-nozes.jpg" alt="Bolo de Doce de Leite com Nozes">
+                    <div class="item-cardapio-info">
+                        <h3>Bolo Doce de Leite com Nozes</h3>
+                        <p>Aquele bolo fofinho com gostinho de infância. Ótimo com um café passado na hora.</p>
+                        <div class="preco">R$ 25,00 (inteiro)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pedidos-rapidos" style="background-color: #fff;">
+            <h2>Monte seu Pedido Rápido</h2>
+            <div class="container-pedido">
+                
+                <div class="categoria-pedido">
+                    <h3>Pães e Salgados</h3>
+                    <div class="item-pedido">
+                        <span class="nome-produto">Tapioca Recheada - R$ 15,00</span>
+                        <input type="number" class="quantidade-item" min="0" value="0" data-nome="Tapioca Recheada" data-preco="15.00">
+                    </div>
+                    <div class="item-pedido">
+                        <span class="nome-produto">Salgado (unidade) - R$ 8,00</span>
+                        <input type="number" class="quantidade-item" min="0" value="0" data-nome="Salgado" data-preco="8.00">
+                    </div>
+                     <div class="item-pedido">
+                        <span class="nome-produto">Pão de Queijo (unidade) - R$ 0,80</span>
+                        <input type="number" class="quantidade-item" min="0" value="0" data-nome="Pão de Queijo" data-preco="0.80">
+                    </div>
+                </div>
+
+                <div class="categoria-pedido">
+                    <h3>Bolos e Doces</h3>
+                    <div class="item-pedido">
+                        <span class="nome-produto">Bolo de Doce de Leite com Nozes (inteiro) - R$ 25,00</span>
+                        <input type="number" class="quantidade-item" min="0" value="0" data-nome="Bolo de Doce de Leite com Nozes (inteiro)" data-preco="25.00">
+                    </div>
+                </div>
+
+                <div id="resumo-pedido">
+                    <h3>Resumo do Pedido</h3>
+                    <ul id="lista-pedido-final">
+                        <li>Nenhum item selecionado.</li>
+                    </ul>
+                    <div id="total-pedido">Total: R$ 0,00</div>
+                </div>
+
+                <p class="mensagem-confianca">
+                    <strong>Importante:</strong> O pagamento é realizado somente no momento da retirada na loja ou na entrega.
+                </p>
+
+                <div style="text-align: center;">
+                    <button id="btn-enviar-whatsapp" class="whatsapp-button">Enviar Pedido para o WhatsApp</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="informacoes">
+            <h2>Nossa Padaria</h2>
+            <div class="info-container">
+                <p><strong>Nossa História:</strong> Começando com apenas uma entrega de encomendas, a Panificadora Planalto cresceu com entregas baseadas na nossa qualidade e orgulho de servir a comunidade com produtos de qualidade. Antes, apenas realizando encomendas, hoje somos a maior padaria da Vila Planalto.</p>
+                <p><strong>Horário de Funcionamento:</strong><br>
+                Segunda a Domingo: 06:00 às 20:00</p>
+                <p><strong>Telefone para contato:</strong><br>
+                <a href="tel:+556133061289" style="color: var(--cor-primaria);">(61) 3306-1289</a></p>
+                <p><strong>Onde Estamos:</strong><br>
+                Lotes 17 / 19 - Acampamento Rabelo, Av. Belém Brasília - Brasília, DF, 70804-005</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© <span id="ano-atual">2025</span> Panificadora Planalto. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.getElementById('ano-atual').textContent = new Date().getFullYear();
+
+        const itensPedido = document.querySelectorAll('.quantidade-item');
+        const listaPedidoFinal = document.getElementById('lista-pedido-final');
+        const totalPedidoEl = document.getElementById('total-pedido');
+        const btnEnviar = document.getElementById('btn-enviar-whatsapp');
+        const numeroWhatsApp = '556133061289';
+
+        function atualizarResumo() {
+            let total = 0;
+            let temItens = false;
+            listaPedidoFinal.innerHTML = '';
+
+            itensPedido.forEach(item => {
+                const quantidade = parseInt(item.value);
+                if (quantidade > 0) {
+                    temItens = true;
+                    const nome = item.dataset.nome;
+                    const preco = parseFloat(item.dataset.preco);
+                    total += quantidade * preco;
+                    
+                    const li = document.createElement('li');
+                    li.textContent = `${quantidade}x ${nome}`;
+                    listaPedidoFinal.appendChild(li);
+                }
+            });
+
+            if (!temItens) {
+                const li = document.createElement('li');
+                li.textContent = 'Nenhum item selecionado.';
+                listaPedidoFinal.appendChild(li);
+            }
+
+            totalPedidoEl.textContent = `Total: R$ ${total.toFixed(2).replace('.', ',')}`;
+        }
+
+        function enviarPedido() {
+            let mensagem = 'Olá! Gostaria de fazer o seguinte pedido:\n';
+            let temItens = false;
+
+            itensPedido.forEach(item => {
+                const quantidade = parseInt(item.value);
+                if (quantidade > 0) {
+                    const nome = item.dataset.nome;
+                    mensagem += `\n- ${quantidade}x ${nome}`;
+                    temItens = true;
+                }
+            });
+
+            if (!temItens) {
+                alert('Você precisa selecionar pelo menos um item para fazer o pedido.');
+                return;
+            }
+
+            const totalTexto = totalPedidoEl.textContent;
+            mensagem += `\n\n${totalTexto}`;
+            
+            const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+            
+            window.open(linkWhatsApp, '_blank');
+        }
+
+        itensPedido.forEach(item => {
+            item.addEventListener('input', atualizarResumo);
+        });
+
+        btnEnviar.addEventListener('click', enviarPedido);
+
+        atualizarResumo();
+    </script>
+
+</body>
+</html>
