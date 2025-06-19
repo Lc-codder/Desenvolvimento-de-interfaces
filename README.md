@@ -37,4 +37,4 @@ O projeto foi inteiramente guiado pela persona **"Zé o vozão"**, um cliente s�
 
 **[Lucas Daniel Silva Guimarães]**
 
-* **GitHub:** `https://github.com/Lc-codder
+* **GitHub:** https://github.com/Lc-codder
