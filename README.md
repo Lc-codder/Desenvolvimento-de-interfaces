@@ -6,7 +6,7 @@
 
 Este projeto consiste na criação de um site institucional com um sistema de pedidos simplificado para a "Panificadora Planalto". A padaria, um forte comércio local com grande potencial de crescimento, tem como principal característica um público de maior idade, muitas vezes menos familiarizado com tecnologias complexas.
 
-O principal desafio foi desenvolver uma interface que fosse, ao mesmo tempo, moderna e extremamente intuitiva, garantindo uma experiência de uso simples e direta[cite: 3]. O objetivo é que o site seja acessível e útil para todas as faixas etárias, fortalecendo a presença digital da padaria sem alienar sua clientela fiel.
+O principal desafio foi desenvolver uma interface que fosse, ao mesmo tempo, moderna e extremamente intuitiva, garantindo uma experiência de uso simples e direta. O objetivo é que o site seja acessível e útil para todas as faixas etárias, fortalecendo a presença digital da padaria sem alienar sua clientela fiel.
 
 ## 🎯 Público-Alvo e Persona
 
